@@ -5,8 +5,9 @@
     <script src="CRating.js"></script>
 </head>
 <body>
-    <c-rating min="5" max="10"></c-rating>
-    <c-rating-buttons id="buttons">
+    <c-rating min="5" max="10" onchange="console.log(event)"></c-rating>
+    <br/>
+    <c-rating-buttons id="buttons" onchange="console.log(event)">
       <span>Good</span>
       <span>Bad</span>
     </c-rating-buttons>
