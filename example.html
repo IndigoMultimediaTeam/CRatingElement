@@ -7,10 +7,10 @@
 <body>
     <c-rating min="5" max="10" onchange="console.log(event)"></c-rating>
     <br/>
-    <c-rating-buttons id="buttons" onchange="console.log(event)">
+    <c-rating-buttons id="buttons">
       <span>Good</span>
       <span>Bad</span>
     </c-rating-buttons>
-    <c-rating use="buttons"></c-rating>
+    <c-rating use="buttons" onchange="console.log(event)"></c-rating>
 </body>
 </html>
