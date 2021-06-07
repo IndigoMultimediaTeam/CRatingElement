@@ -1,6 +1,7 @@
 /* global DOMError */
 /*
     Web Component `<c-rating name="" value="" use="" min="" max="">`
+        - Zdroj: https://github.com/IndigoMultimediaTeam/CRatingElement
         - `name`: je volitelné a určuje jména imputů (defaultně: `name_default+name_count++`)
         - `disabled`: určuje aktivnost inputů (lze měnit i dynamicky po vytvoření)
         - `value`: určuje počáteční hodnotu hodnocení (lze měnit i dynamicky po vytvoření)
