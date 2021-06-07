@@ -37,7 +37,7 @@
                     throw new DOMError(`${el} is not instance of ${CRatingButtonsElement}`);
                 return el.texts;
             }
-            const [ min= 1, max= 5 ]= [ "min", "max" ].map(n=> this.getAttribute(n));
+            const [ min= 1, max= 5 ]= [ "min", "max" ].map(n=> Number(this.getAttribute(n)));
             return Array.from({ length: max-min }).map((_, i)=> i+min);
         }
         _createInput(text, value){
