@@ -5,12 +5,21 @@
     <script src="CRating.js"></script>
 </head>
 <body>
-    <c-rating min="5" max="10" onchange="console.log(event)"></c-rating>
-    <br/>
+    <h2>α) min/max</h2>
+    <c-rating min="5" max="10" onchange="console.log('α', event)"></c-rating>
+    
+    <h2>β) `c-rating-buttons`</h2>
     <c-rating-buttons id="buttons">
       <span>Good</span>
       <span>Bad</span>
     </c-rating-buttons>
-    <c-rating use="buttons" onchange="console.log(event)"></c-rating>
+    <c-rating use="buttons" onchange="console.log('β', event)"></c-rating>
+    
+    <h2>χ) Using children</h2>
+    <c-rating onchange="console.log('χ', event)">
+        <span>One</span>
+        <span>Two</span>
+        <span>Three</span>
+    </c-rating>
 </body>
 </html>

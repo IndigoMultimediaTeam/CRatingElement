@@ -1,14 +1,17 @@
+/* jshint esversion: 6 */
 /* global DOMError */
 /*
     Web Component `<c-rating name="" value="" use="" min="" max="">`
+        - Verze: 2021-06-09
         - Zdroj: https://github.com/IndigoMultimediaTeam/CRatingElement
         - `name`: je volitelné a určuje jména imputů (defaultně: `name_default+name_count++`)
         - `disabled`: určuje aktivnost inputů (lze měnit i dynamicky po vytvoření)
         - `value`: určuje počáteční hodnotu hodnocení (lze měnit i dynamicky po vytvoření)
-        - `use`/`min`+`max`
+        - Zdroj možností
             - určuje možnosti k hodnocení (resp. jejich popisky, `value` vždy odpovídá indexu od 0)
-            - `use`: ID `<c-rating-buttons>…` obsahující textové popisky možností
+            - `use`: ID elementu `<c-rating-buttons>…` obsahující textové popisky možností
             - `min`/`max`: vygeneruje číselné štítky (např.: 1/3 → 1,2,3), defaultně 1/5
+            - případně načte texty potomků (samotné elementy smaže!)
         - `.onchange`/událost `change` (analog. k inputům) vrací hodnotu konkrétního imputu (např.: `({ target })=> console.log(target.value)`)
         - stylování (např.) `c-rating …; c-rating input …; c-rating input:checked + label …; c-rating label`
  */
@@ -38,8 +41,14 @@
                     throw new DOMError(`${el} is not instance of ${CRatingButtonsElement}`);
                 return el.texts;
             }
-            const [ min= 1, max= 5 ]= [ "min", "max" ].map(n=> Number(this.getAttribute(n)));
-            return Array.from({ length: max-min }).map((_, i)=> i+min);
+            if(this.hasAttribute("max")){
+                const [ min= 1, max= 5 ]= [ "min", "max" ].map(n=> Number(this.getAttribute(n)));
+                return Array.from({ length: max-min }).map((_, i)=> i+min);
+            }
+            const ch= Array.from(this.children);
+            const texts= ch.map(({ innerText })=> innerText);
+            ch.forEach(el=> el.remove());
+            return texts;
         }
         _createInput(text, value){
             const /* fragment: `<><input><label><>`; name a id z hl. name */
