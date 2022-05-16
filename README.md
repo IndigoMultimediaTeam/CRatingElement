@@ -1,6 +1,6 @@
 [![LTS+sub-branches](https://img.shields.io/badge/submodule-LTS+sub--branches-informational?style=flat-square&logo=git)](https://github.com/IndigoMultimediaTeam/lts-driven-git-submodules)
 # CRatingElement
-Web component `&lt;c-rating>` represents a 1–n/star/… rating, see
+Web component `<c-rating>` represents a 1–n/star/… rating, see
 [example](https://refined-github-html-preview.kidonng.workers.dev/IndigoMultimediaTeam/CRatingElement/raw/main/example.html).
 
 ## Use in your repo
